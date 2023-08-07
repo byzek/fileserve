@@ -1,0 +1,12 @@
+# Drop in /etc/systemd/system/home-dashboard.service and enable with sudo systemctl enable home-dashboard.service
+[Unit]
+Description=CSV Status File Sharing Service
+Wants=syslog.service
+
+[Service]
+Restart=always
+ExecStart=/home/byzek/home-services/fileserve/serve.sh start
+ExecStop=/home/byzek/home-services/fileserve/serve.sh stop
+
+[Install]
+WantedBy=multi-user.target
